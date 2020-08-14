@@ -56,8 +56,9 @@ const library = [
           <td>${item.author}</td>
           <td>${item.genre}</td>
           <td>${item.pages}</td>
-          <button class="delete">Delete</button>
+          <td><input type="checkbox" class="status"></td>
         </tr>
+        <button class="delete">Delete</button>
     `).join('');
     console.log(html);
     tableRow.innerHTML = html;
