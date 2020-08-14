@@ -57,8 +57,8 @@ const library = [
           <td>${item.genre}</td>
           <td>${item.pages}</td>
           <td><input type="checkbox" class="status"></td>
+          <td><button class="delete">Delete</button></td>
         </tr>
-        <button class="delete">Delete</button>
     `).join('');
     console.log(html);
     tableRow.innerHTML = html;

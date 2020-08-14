@@ -156,7 +156,7 @@ var library = [{
 var generateBook = function generateBook() {
   // e.preventDefault();
   var html = library.map(function (item) {
-    return "\n        <tr>\n          <td>".concat(item.title, "</td>\n          <td>").concat(item.author, "</td>\n          <td>").concat(item.genre, "</td>\n          <td>").concat(item.pages, "</td>\n          <td><input type=\"checkbox\" class=\"status\"></td>\n        </tr>\n        <button class=\"delete\">Delete</button>\n    ");
+    return "\n        <tr>\n          <td>".concat(item.title, "</td>\n          <td>").concat(item.author, "</td>\n          <td>").concat(item.genre, "</td>\n          <td>").concat(item.pages, "</td>\n          <td><input type=\"checkbox\" class=\"status\"></td>\n          <td><button class=\"delete\">Delete</button></td>\n        </tr>\n    ");
   }).join('');
   console.log(html);
   tableRow.innerHTML = html;
