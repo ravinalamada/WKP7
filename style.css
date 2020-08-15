@@ -1,10 +1,24 @@
 body {
-  background-color: #E5E5E5;
-  margin: 0;
   padding: 0;
+  background-color: #E5E5E5;
 }
 
-header {
+.header {
+  background-color: #0083C3;
+  max-width: 1000px;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+}
+
+h1 {
+  padding-inline-start: 40px;
+}
+
+h2 {
+  padding-inline-start: 40px;
+}
+
+.masthead {
   font-family: Inter;
   font-style: normal;
   font-weight: bold;
@@ -36,8 +50,8 @@ header {
 .form {
   background: #FFFFFF;
   border-radius: 10px;
-  padding-inline-start: 38px;
-  padding-inline-end: 38px;
+  padding-inline-start: 40px;
+  padding-inline-end: 40px;
 }
 .cards {
   display: flex;
@@ -63,14 +77,15 @@ input {
   width: 120px;
 }
 
-.list {
-  background-color: rgba(0, 127, 189, 0.03);
-  border-radius: 10px 10px 0px 0px;
-  display: flex;
-  justify-content: space-between;
-  margin-block-start: 40px;
+td {
+  text-align: justify;
+  vertical-align: middle;
+  height: 50px;
   padding-inline-start: 38px;
-  padding-inline-end: 38px;
+}
+
+ thead {
+  background-color: rgba(0, 127, 189, 0.03);
 }
 
 th {
@@ -84,5 +99,20 @@ th {
   color: #747474;
   padding-block-start: 25px;
   padding-block-end: 25px;
+  padding-inline-start: 38px;
+  text-align: justify;
 }
+
+.body-row {
+  background: #FFFFFF;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.delete {
+  border-color: transparent;
+  background-color: transparent;
+  outline: none;
+}
+
 
