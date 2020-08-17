@@ -1,35 +1,22 @@
-# WKP7 - Library
+### My project's structure
+Firstly, I generate the form  and the list header in html, and then I styled them in with css. Secondly, I grabed form, ul, and button element and div container from the html. Thirdly, I created an array of object to and put them in the list so that the user already have them before they add theirs. Forth, I created function which handled the submit form, and then I grabed the input field inside that function in order to access thier values. I created an empty array and push the items in it. I created an html with a map method and then append it into the DOM. After that, I used the turnary method in the input field to enable the user to check or uncheck the checkbox. After that, I tried to delete the item from the list by clicking the deleted button. Lastly, I store the ietms in local storage.
 
-### Hey team!
+## The thing which I would do if I had more time
+First and fore most I would make my delete button work becaue I couldn't do it. Secondly, I would make my website look better. Also, I would refactor my code.
 
-Hope you are ready for a new challenge. I have a nice one for you this week. We're going to build a library management application. The application will consist on a form to add a book, and a table listing all the books. After submitting the form, the new book will appear on the book table.
+## Did I learn anything from it?
 
-### Here is the mockup of our library app.
+Yes, I did learn many thing such as using the custom event and store the thing in the storage local.
 
-![assets/wkp7-library.png](assets/wkp7-library.png)
+## The most challenging part
 
-[You can also access the design through figma.](https://www.figma.com/file/FoD2jZb5oOGZvTUMop0nbA/WKP7?node-id=1%3A2)
+I think to delete the items was the most difficult part because I spent lots of my time to handle it but I couldn't still do it.
 
-### A book needs those attributes :
+## Explanation about a topic
+I would like to have more explanation about the find method. I would also like to know when we should use contains and when we should use matches in the event delegation.
 
--   A title
--   An author
--   A genre (Mystery, Thriller, Fiction, Non-fiction, Fantasy, Design, Memoirs...)
--   A number of pages
--   A status (Read or not)
+## Comments
+It was such a good project because there were lots challenges.
 
-### Requirements :
 
--   When users load the app for the first time, a list of 3 books minimum should already be present on the list. The list will always be generated dynamically with some state in the javascript.
--   Users should be able to change the read attribute status by clicking the checkbox (and the changes will be reflected in the app state)
--   Users should be able to delete a book from the list by clicking the trash icon (and reflect that in the app state as well)
--   When a user come back to the app with the same browser, they should see the same book list as it was, before they left the app. Save the current book list to your browser's _Local Storage_.
 
-### Tips :
-
--   Focus on the features first, and if you have some time left, try to replicate this design.
--   Start by choosing the book data structure, and create a few of them in the code.
--   Focus on your basic app functionality first, and then try to save the state of your app to _Local Storage_.
--   I suggest you to look back to the Shopping List exercise we did together (Video 57). There is a lot of similarities between the exercise and this project 😉
-
-### Good luck team 🙌

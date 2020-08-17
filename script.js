@@ -2,7 +2,7 @@ console.log('works');
 // References
 const container = document.querySelector('.container');
 const formEl = document.querySelector('.form');
-const tbodyEl = document.querySelector('#book-list');
+const listEl = document.querySelector('#main-list');
 const addButton = document.querySelector('.add-btn');
 
 // The array object of book that will be displayed before a user will add a new book
@@ -34,19 +34,19 @@ const library = [
 
 const generateBook = () => {
   const html = library.map(item => `
-        <tr class="body-row">
-          <td>${item.title}</td>
-          <td>${item.author}</td>
-          <td>${item.genre}</td>
-          <td>${item.pages}</td>
-          <td><input type="checkbox" class="status"></td>
-          <td><button class="delete"><svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <li class="main-items">
+          <span>${item.title}</span>
+          <span>${item.author}</span>
+          <span>${item.genre}</span>
+          <span>${item.pages}</span>
+          <input type="checkbox" class="status">
+          <button class="delete"><svg class="delete" width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M10.5 1L9.5 0H4.5L3.5 1H0V3H14V1H10.5ZM1 16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V4H1V16ZM3 6H11V16H3V6Z" fill="#747474"/>
           </svg>
-          </button></td>
-        </tr>
+          </button>
+        </li>
     `).join('');
-  tbodyEl.innerHTML = html;
+  listEl.innerHTML = html;
 }; generateBook();
 
 // Creat an empty array that will store the book which will be pushed in
@@ -73,28 +73,27 @@ const handleSubmit = (event) => {
   };
   books.push(book);
   event.target.reset();
-  tbodyEl.dispatchEvent(new CustomEvent('itemsUpdated'));
+  listEl.dispatchEvent(new CustomEvent('itemsUpdated'));
 };
 
 // This will dispaly the book after the user submit
 const displayBook = () => {
   const html = books.map(item => `
-        <tr class="body-row" id="${item.id}">
-          <td>${item.title}</td>
-          <td>${item.author}</td>
-          <td>${item.genre}</td>
-          <td>${item.pages}</td>
-          <td><input type="checkbox" class="status" ${item.status === 'read' ? 'checked' : ''}></td>
-          <td>
-            <button type="button" class="delete">
-              <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10.5 1L9.5 0H4.5L3.5 1H0V3H14V1H10.5ZM1 16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V4H1V16ZM3 6H11V16H3V6Z" fill="#747474"/>
+        <li class="main-items" id="${item.id}">
+          <span>${item.title}</span>
+          <span>${item.author}</span>
+          <span>${item.genre}</span>
+          <span>${item.pages}</span>
+          <input type="checkbox" value="${item.id}" class="status" ${item.status === 'read' ? 'checked' : ''}></span>
+          <button type="button" class="delete" >
+            <svg class="delete" width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.5 1L9.5 0H4.5L3.5 1H0V3H14V1H10.5ZM1 16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V4H1V16ZM3 6H11V16H3V6Z" fill="#747474"/>
               </svg>
-            </button>
-          </td>
-        </tr>
+          </button>
+          </span>
+        </li>
     `).join('');
-  tbodyEl.insertAdjacentHTML('beforeend', html);
+  listEl.insertAdjacentHTML('beforeend', html);
 };
 
 // Store the book in the local storage
@@ -110,7 +109,7 @@ const restoreFromLocalStorage = () => {
   // Check if there is something if of the list
   if (list) {
     books.push(...list);
-    tbodyEl.dispatchEvent(new CustomEvent('itemsUpdated'));
+    listEl.dispatchEvent(new CustomEvent('itemsUpdated'));
   };
 };
 
@@ -119,26 +118,28 @@ const markAsComplete = id => {
   console.log(id);
   const bookRef = books.find(book => book.id === id);
   bookRef.status = !bookRef.status;
-  tbodyEl.dispatchEvent(new CustomEvent('itemsUpdated'));
+  listEl.dispatchEvent(new CustomEvent('itemsUpdated'));
 };
 
 // handle the checkbox
-tbodyEl.addEventListener('click', function (e) {
+listEl.addEventListener('click', function (e) {
   if (e.target.matches('input[type="checkbox"]')) {
     markAsComplete(id);
-  };
+  }
 });
 
 // Delete the book item
 const handleDeleteBtn = (e) => {
-  e.target.closest('.body-row').remove();
-
+  if (e.target.matches('.delete')) {
+    console.log(e.target);
+    e.target.closest('.main-items').remove();
+  }
 };
 
 // Listen to all of the events
 formEl.addEventListener('submit', handleSubmit);
-tbodyEl.addEventListener('itemsUpdated', displayBook);
-tbodyEl.addEventListener('itemsUpdated', setToLocalStorage);
-tbodyEl.addEventListener('click', handleDeleteBtn);
+listEl.addEventListener('itemsUpdated', displayBook);
+listEl.addEventListener('itemsUpdated', setToLocalStorage);
+window.addEventListener('click', handleDeleteBtn);
 
 restoreFromLocalStorage();

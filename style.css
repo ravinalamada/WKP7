@@ -77,18 +77,14 @@ input {
   width: 120px;
 }
 
-td {
-  text-align: justify;
-  vertical-align: middle;
-  height: 50px;
-  padding-inline-start: 38px;
-}
-
- thead {
+#list-header {
   background-color: rgba(0, 127, 189, 0.03);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  text-align: center;
 }
 
-th {
+.items-header {
   font-family: Inter;
   font-style: normal;
   font-weight: bold;
@@ -99,14 +95,18 @@ th {
   color: #747474;
   padding-block-start: 25px;
   padding-block-end: 25px;
-  padding-inline-start: 38px;
-  text-align: justify;
 }
 
-.body-row {
-  background: #FFFFFF;
-  border-radius: 10px;
-  justify-content: center;
+#main-list {
+  background-color: white;
+}
+
+.main-items {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  text-align: center;
+  padding-block-start: 10px;
+  padding-block-end: 10px;
 }
 
 .delete {
