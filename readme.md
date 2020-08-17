@@ -16,7 +16,7 @@ I think to delete the items was the most difficult part because I spent lots of 
 I would like to have more explanation about the find method. I would also like to know when we should use contains and when we should use matches in the event delegation.
 
 ## Comments
-It was such a good project because there were lots challenges.
+It was such a good project because there were lots challenges. Thank you for your hard work in structuring it. It is so kind of you.
 
 
 
